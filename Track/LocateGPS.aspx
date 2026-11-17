@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LocateGPS.aspx.cs" Inherits="Track_LocateGPS" %>

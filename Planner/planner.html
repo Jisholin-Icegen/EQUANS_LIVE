@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Planner | TRACZO</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/sumoselect.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body class="">
+    <div class="lang-menu" style="visibility:hidden">
+        <select id="dropdown">
+            <option>Select</option>
+            <option class="porter" value="porter">Porter</option>
+            <option class="cleaning" value="cleaning">Cleaning</option>
+        </select>
+        <a class="select-language" href="planner-thai.html">Thai</a>
+    </div>
+    <div id="loader" class="loader-wrapper">
+        <img src="images/Traczo.svg" alt="Traczo">
+    </div>
+    <div class="main-wrapper">
+        <div class="main-screen-wrap">
+            <div class="main-screen-inner">
+
+                <!-- Left Panel -->
+                <div class="screen-left-panel">
+                    <div class="screen-left-sticky">
+                        <div>
+                            <div class="traczo-logo">
+                                <a href="../Index/Index.aspx">
+                                    <img src="images/Traczo.svg" alt="Traczo">
+                                </a>
+                            </div>
+                            <div class="hospital-img">
+                                <img src="images/hospital.jpg" alt="Hospital">
+                            </div>
+                            <div class="hospital-title">
+                                <h5>Welcome</h5>
+                                <h6>QAH University Hospital,</h6>
+                                <p>Newcastle Rd, Stoke-on-Trent ST4 6QG, United Kingdom</p>
+                            </div>
+                            <div class="left-panel-menu">
+                                <ul>
+                                    <li>
+                                        <a href="../Index/Index.aspx">
+                                            <span><img src="images/home.png" alt="Home"></span> Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboard.html">
+                                            <span><img src="images/dashboard.png" alt="Dashboard"></span> Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="map.html">
+                                            <span><img src="images/world-map.png" alt="Map"></span> Map
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Track/TrackNew.aspx">
+                                            <span><img src="images/doc.png" alt="Track"></span> Track
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                            data-bs-target="#reportsModal">
+                                            <span><img src="images/clipboard.png" alt="Reports"></span> Reports
+                                        </a>
+                                    </li>
+                                    <li class="current-menu-item">
+                                        <a href="planner.html">
+                                            <span><img src="images/spiral-calendar.png" alt="Planner"></span> Planner
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="profile-link">
+                                <div class="profile-img">
+                                    <img src="images/profile.jpg" alt="Profile">
+                                </div>
+                                <div class="profile-designation">
+                                    <h6>Account Profile</h6>
+                                </div>
+                                <a href="login.html" class="stretched-link"></a>
+                            </div>
+                            <div class="add-task-link">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#addTask"
+                                    class="btn btn-primary">
+                                    <img src="images/memo.png" alt="Add Task"> Add task
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Left Panel -->
+
+                <!-- Right Panel -->
+                <div class="screen-right-panel">
+                    
+                    <div class="search-header">
+                        <div class="search-wrap shadow">
+                            <div class="search-box">
+                                <form>
+                                    <input type="search" maxlength="30"  autocomplete="off webauthn"  class="form-control">
+                                    <input type="submit" value="" class="search-submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="form-wrap me-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h5>Planner Report</h5>
+                            </div>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="month">Month</label>
+                                            <select name="month" id="month" class="sumoSelect">
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May" selected>May</option>
+                                                <option value="June">June</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="dayFrom">Day From</label>
+                                            <select name="dayFrom" id="dayFrom" class="sumoSelect">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5" selected>5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                                <option value="28">28</option>
+                                                <option value="29">29</option>
+                                                <option value="30">30</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="dayTo">Day To</label>
+                                            <select name="dayTo" id="dayTo" class="sumoSelect">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8" selected>8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                                <option value="28">28</option>
+                                                <option value="29">29</option>
+                                                <option value="30">30</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="timeFrom">Time From</label>
+                                            <input type="time" value="10:00:00" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="timeTo">Time To</label>
+                                            <input type="time" value="11:30:00" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="name">Name</label>
+                                            <select name="name" id="name" class="sumoSelect">
+                                                <option value="John Doe">John Doe</option>
+                                                <option value="John Doe">John Doe</option>
+                                                <option value="John Doe">John Doe</option>
+                                                <option value="John Doe">John Doe</option>
+                                                <option value="John Doe">John Doe</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="search">Search</label>
+                                            <div class="search-form">
+                                                <input type="search" maxlength="30"  autocomplete="off webauthn"  placeholder="Search" class="form-control">
+                                                <input type="submit" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3 row justify-content-end">
+                                            <div class="col-sm-4">
+                                                <button type="button" class="btn btn-outline w-100"><img src="images/page.png"> Excel</button>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <button type="button" class="btn btn-secondary w-100"><img src="images/envelope.png"> Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="custom-calendar-wrap-page">
+                            <div class="custom-calendar-page">
+                                <header>
+                                    <div class="icons-page">
+                                        <span id="prevPage"><img src="images/left.svg"></span>
+                                        <p class="current-date-page"></p>
+                                        <span id="nextPage"><img src="images/right.svg"></span>
+                                    </div>
+                                </header>
+                                <div class="calendar-page">
+                                    <ul class="weeks-page">
+                                        <li>Sun</li>
+                                        <li>Mon</li>
+                                        <li>Tue</li>
+                                        <li>Wed</li>
+                                        <li>Thu</li>
+                                        <li>Fri</li>
+                                        <li>Sat</li>
+                                    </ul>
+                                    <ul class="days-page"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /Right Panel -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports -->
+    <!-- Modal -->
+    <div class="modal fade" id="reportsModal" tabindex="-1" aria-labelledby="reportsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reportsModalLabel">Generate New Report</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <img src="images/close-white.svg">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="select-format">Choose Format</label>
+                                    <select name="select-format" id="select-format" class="form-control selectFormat sumoSelect">
+                                        <option value="PDF">PDF</option>
+                                        <option value="Excel">Excel</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="since-date">Since</label>
+                                    <input type="date" id="since-date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="to-date">To</label>
+                                    <input type="date" id="to-date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-outline me-3" data-bs-dismiss="modal"><img src="images/multiply.svg"> Cancel</button>
+                                    <input type="submit" value="Generate" class="btn btn-secondary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Reports -->
+
+    <!-- Add Task -->
+    <!-- Modal -->
+    <div class="modal fade addTask" id="addTask" tabindex="-1" aria-labelledby="addTaskLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="search-header">
+                    <div class="search-wrap shadow">
+                        <div class="search-box">
+                            <form>
+                                <input type="search" maxlength="30"  autocomplete="off webauthn"  class="form-control">
+                                <input type="submit" value="" class="search-submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between">
+                        <div class="form-wrap me-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h5>Add Task</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <img src="images/close-white.svg">
+                                </button>
+                            </div>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="toggle-switch">
+                                            <strong>Pre-Book</strong>
+                                            <label class="switch">
+                                                <input type="checkbox" onclick="toggleBodyClass()">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-6 pre-book-hide">
+                                        <div class="mb-3">
+                                            <label for="task-date">Date</label>
+                                            <input type="date" id="task-date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pre-book-hide">
+                                        <div class="mb-3">
+                                            <label for="task-time">Time</label>
+                                            <input type="time" id="task-time" class="form-control">
+                                        </div>
+                                    </div> -->
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="from">From</label>
+                                            <select name="selectFloor" id="search_from"
+                                                class="form-control search_test">
+                                                <option value="Location 1">Location 1</option>
+                                                <option value="Location 2">Location 2</option>
+                                                <option value="Location 3">Location 3</option>
+                                                <option value="Location 4">Location 4</option>
+                                                <option value="Location 4">Location 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="from">To</label>
+                                            <select name="selectFloor" id="search_to" class="form-control search_test">
+                                                <option value="Location 6">Location 6</option>
+                                                <option value="Location 7">Location 7</option>
+                                                <option value="Location 8">Location 8</option>
+                                                <option value="Location 9">Location 9</option>
+                                                <option value="Location 10">Location 10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="from">Task Type</label>
+                                            <!-- <select name="selectTaskType" id="selectLocation" class="sumoSelect">
+                                                <option selected>Select Task Type</option>
+                                                <option value="Bed">Bed</option>
+                                                <option value="Documents">Documents</option>
+                                                <option value="Pharmacy">Pharmacy</option>
+                                                <option value="Cylinder">Cylinder</option>
+                                                <option value="Samples">Samples</option>
+                                                <option value="Stretcher">Stretcher</option>
+                                                <option value="Wheel-Chair">Wheel-Chair</option>
+                                                <option value="X Ray">X Ray</option>
+                                            </select> -->
+                                            <div class="icon-section">
+                                                <ul>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-bed.png" alt="Bed">
+                                                        <p>Bed</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-documents.png" alt="Documents">
+                                                        <p>Documents</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-pharmacy.png" alt="Pharmacy">
+                                                        <p>Pharmacy</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-cylinder.png" alt="Cylinder">
+                                                        <p>Cylinder</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-samples.png" alt="Samples">
+                                                        <p>Samples</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-stretcher.png" alt="Stretcher">
+                                                        <p>Stretcher</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-wheelchair.png" alt="Wheel-Chair">
+                                                        <p>Wheel-Chair</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-xray.png" alt="X-ray">
+                                                        <p>X Ray</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-porter.png" alt="Porter">
+                                                        <p>Porter</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-cssd.png" alt="CSSD">
+                                                        <p>CSSD</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-ortho-wheelchair.png"
+                                                            alt="Ortho Wheelchair">
+                                                        <p>Ortho Wheelchair</p>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox">
+                                                        <span><img src="images/check.png"></span>
+                                                        <img src="images/icon-trolley.png" alt="Trolley">
+                                                        <p>Trolley</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="from">Patient Name</label>
+                                            <input type="text" class="form-control" placeholder="Patient Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3 text-center">
+                                            <label for="two-porters">Two Porters</label>
+                                            <div><input type="checkbox" id="two-porters" class=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="from">Remarks</label>
+                                            <textarea name="task-description" rows="6" class="form-control"
+                                                placeholder="Remarks"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3 row">
+                                            <div class="col-sm-4">
+                                                <button type="reset" class="btn btn-tertiary w-100">Clear</button>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <button type="button" class="btn btn-outline w-100"
+                                                    data-bs-dismiss="modal"><img src="images/multiply.svg">
+                                                    Cancel</button>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <button type="button" class="btn btn-secondary w-100"><img
+                                                        src="images/envelope.png"> Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="custom-calendar-wrap">
+                            <div class="custom-calendar">
+                                <header>
+                                    <div class="icons">
+                                        <span id="prev"><img src="images/left.svg"></span>
+                                        <p class="current-date"></p>
+                                        <span id="next"><img src="images/right.svg"></span>
+                                    </div>
+                                </header>
+                                <div class="calendar">
+                                    <ul class="weeks">
+                                        <li>Sun</li>
+                                        <li>Mon</li>
+                                        <li>Tue</li>
+                                        <li>Wed</li>
+                                        <li>Thu</li>
+                                        <li>Fri</li>
+                                        <li>Sat</li>
+                                    </ul>
+                                    <ul class="days"></ul>
+                                </div>
+                            </div>
+                            <div class="card my-2">
+                                <div class="col-md-12 pre-book-hide">
+                                    <div class="mb-3">
+                                        <label for="task-time">Time</label>
+                                        <input type="time" id="task-time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Add Task -->
+
+    <!-- JS CSS -->
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sumoselect.min.js"></script>
+    <script src="js/style.js"></script>
+</body>
+
+</html>

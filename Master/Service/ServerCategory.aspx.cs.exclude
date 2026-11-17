@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Web;
+
+using System.Net.Http.WebRequests;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.IO;
+using System.Web.Script.Serialization;
+
+public partial class Master_Service_ServerCategory : System.Web.UI.Page
+{
+    public static string process { get; set; }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        DataSet data = new DataSet();
+        process = ((!string.IsNullOrEmpty((Request.QueryString["Process"]))) ? Request.QueryString["Process"].ToString().ToUpper() : "");
+        switch (process)
+        {
+            case "UPDATECATEGORY":
+                data = setCategory();
+                break;
+        }
+        JavaScriptSerializer serializer = new JavaScriptSerializer() { MaxJsonLength = int.MaxValue };
+        List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
+        Dictionary<string, object> row;
+
+        foreach (DataTable table in data.Tables)
+        {
+            if (table.Rows.Count > 0)
+            {
+                foreach (DataRow dr in table.Rows)
+                {
+                    row = new Dictionary<string, object>();
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        row.Add(col.ColumnName, dr[col]);
+                    }
+                    rows.Add(row);
+                }
+            }
+        }
+        Response.Write(serializer.Serialize(rows));
+    }
+
+    private DataTable generate()
+    {
+        DataColumn column;
+        DataRow row;
+        var table = new DataTable() { TableName = "OptionAdd" };
+        column = new DataColumn();
+        column.DataType = System.Type.GetType("System.String");
+        column.ColumnName = "RESULT";
+        table.Columns.Add(column);
+        return table;
+    }
+
+
+    public DataSet setCategory()
+    {
+        DataTable table = generate();
+        DataRow row = table.NewRow();
+
+        string hosid = HttpContext.Current.Request.Form["HospitalId"].ToString(), pid = HttpContext.Current.Request.Form["PorterId"].ToString();
+
+        var rtnBool = (!Request.Content.IsMimeMultipartContent() ? false : true);
+
+        if (!Request.Content.IsMimeMultipartContent())
+        {
+            rtnBool = false;
+            //throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+        }
+        List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
+        string rslt = "FALSE"; DataTable dt = new DataTable();
+        try
+        {
+            var file = HttpContext.Current.Request.Files.Count > 0 ? HttpContext.Current.Request.Files[0] : null;
+
+            if (rtnBool && file != null && file.ContentLength > 0 && (new[] { ".jpg", ".jpeg", ".png", ".bmp" }.Contains(Path.GetExtension(file.FileName.ToLower())) ? true : false))
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                fileName = pid + DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(file.FileName.ToLower());
+
+                var path = Path.Combine(
+                    HttpContext.Current.Server.MapPath("~/Images/Profile"),
+                    fileName
+                );
+                rtnBool = true;
+            }
+        }
+        catch (Exception e)
+        {
+            DataAccess.InsertError(e.Message, "CategoryUpload");
+            rtnBool = false;
+        }
+        if (rtnBool)
+            row["RESULT"] = "TRUE";
+        else
+            row["RESULT"] = "FALSE";
+        table.Rows.Add(row);
+        DataSet DS = new DataSet(); DS.Tables.Add(table);
+        return DS;
+
+    }
+}
